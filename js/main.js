@@ -3,18 +3,27 @@ var APPID = "079f7d8d2fc7378eb62f2d80e33d665b";
 
 $(document).ready(() => {
 
+	// Hide Table
+	$("#tableDiv").hide();
+
 	// Get Value From Input
 	$("#searchForm").on("submit", (e) => {
-		let searchQuery = ($("#searchText").val());
-		getCity(searchQuery);
-
+		startSearch();
 		e.preventDefault();
 	});
 
 });
 
-// Get City Based On Search Query
-function getCity(query){
+function startSearch(){
+	let searchQuery = ($("#searchText").val());
+	$("#tableDiv").show();
+	getWeatherByCity(searchQuery);
+}
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+// Get Weather Based On City
+function getWeatherByCity(query){
 	var url = "http://api.openweathermap.org/data/2.5/weather?q=" + query + "&appid=" + APPID + "&units=metric";
 	
 	axios.get(url)
@@ -26,6 +35,34 @@ function getCity(query){
 			console.log(err);
 		});
 }
+
+// Get Weather Through Current Position
+function showPosition(position){
+	$("#tableDiv").show();
+	getWeatherByPosition(position.coords.latitude, position.coords.longitude);
+}
+
+// Get Weather Based On Position
+function getWeatherByPosition(lat, lon){
+	var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + APPID + "&units=metric";
+	
+	axios.get(url)
+		.then((response) => {
+			console.log(response);
+			setText(response.data);
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+}
+
+function getLocation(){
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(showPosition);
+	}
+}
+
+/*-----------------------------------------------------------------------------------------------------*/
 
 // Set all text according to data retrieved
 function setText(data){
@@ -40,6 +77,8 @@ function setText(data){
 	setImage(data);
 	convertToDirection(data);
 }
+
+/*-----------------------------------------------------------------------------------------------------*/
 
 // Set Image based on forecast
 function setImage(data){
@@ -106,6 +145,8 @@ function setImage(data){
 	}
 }
 
+/*-----------------------------------------------------------------------------------------------------*/
+
 // Convert Degrees To Direction (N,E,S,W)
 function convertToDirection(data){
 	var degree = data.wind.deg;
@@ -124,3 +165,5 @@ function convertToDirection(data){
 		high = (high + range) % 360;
 	}
 }
+
+/*-----------------------------------------------------------------------------------------------------*/
