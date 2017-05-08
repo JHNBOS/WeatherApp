@@ -9,6 +9,7 @@
 		<!--SCRIPTS-->
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
 		<script src="js/main.js"></script>
 		
 		<!--LINKS-->
@@ -103,7 +104,7 @@
 						<hr />
 
 						<div id="tableDiv">
-							<table id="weatherTable" class="table-responsive table-hover" cellspacing="10" cellpadding="10">
+							<table id="weatherTable" class="table-responsive table-hover" cellspacing="4" cellpadding="4">
 							<tr>
 								<td style="text-align: right;">
 									<strong>Wind</strong>
@@ -133,8 +134,7 @@
 								</td>
 								<td>
 									<span class="fa fa-cloud"></span>
-									<p id="desc">
-									</p>
+									<span id="desc"></span>
 								</td>
 								<td></td>
 							</tr>
@@ -143,6 +143,113 @@
 						
 
 					</div>
+					<div class="col-sm-1 col-md-1"></div>
+				</div>
+			</div>
+
+			<br />
+
+			<div class="row">
+				<div id="forecast">
+
+					<div class="col-sm-1 col-md-1"></div>
+
+					<div class="col-sm-10 col-md-10 forecast">
+						<div class="col-sm-1 col-md-1"></div>
+
+						<div class="col-sm-2 col-md-2">
+							<table class="table-responsive" id="fc1">
+								<tr>
+									<td class="text-center">
+										<img id="fc_img1" src="#" class="img-responsive center-block" style="width: 70%" />
+									</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<span id="fc_date1" style="font-weight: 700;font-size: 17px;"></span>
+										<br />
+										<span class="fa fa-thermometer-half"></span>
+										<span id="fc_temp1" style="font-size: 16px;"></span>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="col-sm-2 col-md-2">
+							<table class="table-responsive" id="fc2">
+								<tr>
+									<td class="text-center">
+										<img id="fc_img2" src="#" class="img-responsive center-block" style="width: 70%" />
+									</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<span id="fc_date2" style="font-weight: 700;font-size: 17px;"></span>
+										<br />
+										<span class="fa fa-thermometer-half"></span>
+										<span id="fc_temp2" style="font-size: 16px;"></span>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="col-sm-2 col-md-2">
+							<table class="table-responsive" id="fc3">
+								<tr>
+									<td class="text-center">
+										<img id="fc_img3" src="#" class="img-responsive center-block" style="width: 70%" />
+									</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<span id="fc_date3" style="font-weight: 700;font-size: 17px;"></span>
+										<br />
+										<span class="fa fa-thermometer-half"></span>
+										<span id="fc_temp3" style="font-size: 16px;"></span>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="col-sm-2 col-md-2">
+							<table class="table-responsive" id="fc4">
+								<tr>
+									<td class="text-center">
+										<img id="fc_img4" src="#" class="img-responsive center-block" style="width: 70%" />
+									</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<span id="fc_date4" style="font-weight: 700;font-size: 17px;"></span>
+										<br />
+										<span class="fa fa-thermometer-half"></span>
+										<span id="fc_temp4" style="font-size: 16px;"></span>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="col-sm-2 col-md-2">
+							<table class="table-responsive" id="fc5">
+								<tr>
+									<td class="text-center">
+										<img id="fc_img5" src="#" class="img-responsive center-block" style="width: 70%" />
+									</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<span id="fc_date5" style="font-weight: 700;font-size: 17px;"></span>
+										<br />
+										<span class="fa fa-thermometer-half"></span>
+										<span id="fc_temp5" style="font-size: 16px;"></span>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="col-sm-1 col-md-1"></div>
+					</div>
+
 					<div class="col-sm-1 col-md-1"></div>
 				</div>
 			</div>
