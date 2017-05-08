@@ -130,8 +130,11 @@ function setForecast(data){
 function convertToDirection(data){
 	var degree = data.wind.deg;
 	
-	DirTable = ["N","NNE","NE","ENE","E","ESE", "SE","SSE","S","SSW","SW","WSW", "W","WNW","NW","NNW"]; 
+	DirTable = ["N","NNE","NE","ENE","E","ESE", "SE","SSE","S","SSW","SW","WSW", "W","WNW","NW","NNW", "N"]; 
 	wind_direction= DirTable[Math.floor((degree+11.25)/22.5)];
+
+	console.log("Wind Degree: " + degree);
+	console.log("Wind Direction: " + wind_direction);
 
 	$("#direction").text(wind_direction);
 }
