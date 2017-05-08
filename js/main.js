@@ -1,6 +1,5 @@
 var APPID = "079f7d8d2fc7378eb62f2d80e33d665b";
 
-
 $(document).ready(() => {
 
 	// Hide Table
@@ -14,9 +13,9 @@ $(document).ready(() => {
 
 });
 
+// Search For Weather Based On Value Input
 function startSearch(){
 	let searchQuery = ($("#searchText").val());
-	$("#tableDiv").show();
 	getWeatherByCity(searchQuery);
 }
 
@@ -26,6 +25,8 @@ function startSearch(){
 function getWeatherByCity(query){
 	var url = "http://api.openweathermap.org/data/2.5/weather?q=" + query + "&appid=" + APPID + "&units=metric";
 	
+	$("#tableDiv").show();
+
 	axios.get(url)
 		.then((response) => {
 			console.log(response);
@@ -36,16 +37,13 @@ function getWeatherByCity(query){
 		});
 }
 
-// Get Weather Through Current Position
-function showPosition(position){
-	$("#tableDiv").show();
-	getWeatherByPosition(position.coords.latitude, position.coords.longitude);
-}
 
 // Get Weather Based On Position
 function getWeatherByPosition(lat, lon){
 	var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + APPID + "&units=metric";
 	
+	$("#tableDiv").show();
+
 	axios.get(url)
 		.then((response) => {
 			console.log(response);
@@ -56,10 +54,12 @@ function getWeatherByPosition(lat, lon){
 		});
 }
 
+// Get Location Through IP
 function getLocation(){
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(showPosition);
-	}
+	$.getJSON("http://ip-api.com/json", (data) =>{
+		console.log(data);
+		getWeatherByCity(data.city);
+	});
 }
 
 /*-----------------------------------------------------------------------------------------------------*/
