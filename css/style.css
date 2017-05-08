@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body{
+	margin: 0 0 20px;
 	font-family: 'Open Sans', sans-serif;
+	background-color: #C1C1C1;
 }
 
 hr{
@@ -9,15 +16,51 @@ hr{
 	width: 80%;
 }
 
+.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.navbar-brand {float:none;}
+
 #centerdiv{
+	margin: 0 0 40px;
 	margin-top: 55px !important;
 }
 
+#footer{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin: 0 0 0 0 !important;
+    width: 100%;
+	height: 20px;
+	background-color: #2780E3;
+	color: #FFF;
+	font-weight: 600;
+}
+/*-------------------------------------------------------*/
+/* CSS FOR WEATHER */
+#weather{
+	display: flex;
+}
+
+#weatherTable td{
+    padding-right: 50px;
+    padding-left: 20px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+}
+
+#weatherTable{
+	width: 100%;
+	margin-top: 5px;
+}
 /*-----------------------------------------------------*/
 /* CSS FOR LEFT SIDE */
-
 .left{
-	height: 220px;
 	background-color: #444;
 	color: #FFF;
 	-webkit-border-top-left-radius: 50px;
@@ -43,12 +86,9 @@ hr{
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	font-family: 'Tahoma', sans-serif;
 }
-
 /*-----------------------------------------------------*/
 /* CSS FOR RIGHT SIDE */
-
 .right{
-	height: 220px;
 	background-color: #E6E6E6;
 	color: #000;
 	padding: 16px 20px 20px 20px !important;
@@ -77,36 +117,19 @@ hr{
 #desc{
 	font-size: 15px !important;
 }
-
 /*-----------------------------------------------------------------*/
-
 /* CSS FOR FORM */
-
 #btnLocation{
     height: 40px;
+    width: 50px;
 }
 
 #btnSearch{
     height: 40px;
+    width: 50px;
 }
-
-#weatherTable td{
-    padding-right: 50px;
-    padding-left: 20px;
-    padding-bottom: 6px;
-    padding-top: 6px;
-}
-
-#weatherTable{
-	width: 100%;
-	margin-top: 5px;
-}
-
 /*---------------------------------------------------------------*/
 /* CSS FOR FORECAST */
-#forecast{
-}
-
 .forecast{
 	margin-bottom: 30px;
 	background-color: #2780E3;
@@ -115,4 +138,79 @@ hr{
 	-webkit-border-bottom-left-radius: 50px;
 	-moz-border-radius-bottomleft: 50px;
 	border-bottom-left-radius: 50px;
+}
+
+#fc_img1, #fc_img2, #fc_img3, #fc_img4, #fc_img5, img{
+	width: 70%;
+}
+
+#fc_date1, #fc_date2, #fc_date3, #fc_date4, #fc_date5{
+	font-weight: 700;
+	font-size: 17px;
+}
+
+#fc_temp1, #fc_temp2, #fc_temp3, #fc_temp4, #fc_temp5{
+	font-size: 16px;
+}
+/*-----------------------------------------------------------------*/
+/* CSS FOR SMALLER SCREENS */
+@media (max-width:961px){
+	#weather{
+		display: block;
+	}
+
+	.left{
+		-webkit-border-top-left-radius: 0px;
+		-moz-border-radius-topleft: 0px;
+		border-top-left-radius: 0px;
+	}
+
+	#weathericon{
+		width: 40%;
+	    margin-top: 20px;
+		vertical-align: middle;
+	}
+
+	#temp{
+		font-size: 30px !important;
+	    position: absolute;
+	    top: 45%;
+	    height: 140px;
+		margin-left: 50px;
+	}
+
+	.forecast{
+		margin-bottom: 10px;
+		padding: 11px 15px 15px 15px !important;
+		-webkit-border-bottom-left-radius: 0px;
+		-moz-border-radius-bottomleft: 0px;
+		border-bottom-left-radius: 0px;
+		border: none;
+	}
+
+	#weatherTable td{
+	    padding-right: 40px;
+	    padding-left: 20px;
+	    padding-bottom: 6px;
+	    padding-top: 6px;
+	    font-size: 15px;
+	}
+
+	#fc1, #fc2, #fc3, #fc4, #fc5{
+		border; none;
+	}
+
+	#fc_img1, #fc_img2, #fc_img3, #fc_img4, #fc_img5, img{
+		width: 40%;
+		border: none;
+	}
+
+	#fc_date1, #fc_date2, #fc_date3, #fc_date4, #fc_date5{
+		font-weight: 700;
+		font-size: 16px;
+	}
+
+	#fc_temp1, #fc_temp2, #fc_temp3, #fc_temp4, #fc_temp5{
+		font-size: 15px;
+	}
 }
